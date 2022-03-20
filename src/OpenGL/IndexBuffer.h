@@ -8,7 +8,7 @@ namespace gl
 class IndexBuffer
 {
 public:
-	IndexBuffer( GLuint* indicies, GLsizeiptr size );
+	IndexBuffer( GLuint* indices, GLsizeiptr size );
 	IndexBuffer( const IndexBuffer& other ) = delete;
 
 	~IndexBuffer();
@@ -23,4 +23,4 @@ private:
 	GLuint _ib;
 };
 
-}
+} /* namespace gl */

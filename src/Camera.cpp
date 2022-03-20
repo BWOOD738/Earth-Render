@@ -77,9 +77,16 @@ void Camera::HandleInputs( GLFWwindow* window )
         setSpeed( 0.4f );
     }
 
+    /* Reset the camera position */
+    if( glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS )
+    {
+        ResetCamera();
+        orientation = vec3( 0.0f, 0.0f, -1.0f );
+    }
+
     else if( glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE )
     {
-        setSpeed( _speed );
+        setSpeed( 0.1f );
     }
 
     /* Handling the mouse inputs */
@@ -129,4 +136,7 @@ void Camera::HandleInputs( GLFWwindow* window )
 	}
 }
     
-
+void Camera::ResetCamera()
+{
+    this->_position = vec3( 0.0f, 0.0f, 2.0f );
+}

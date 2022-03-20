@@ -39,6 +39,8 @@ public:
 
     void HandleInputs( GLFWwindow* window );
 
+    void ResetCamera();
+
 private:
     vec3 _position;
     vec3 orientation = vec3( 0.0f, 0.0f, -1.0f );

@@ -11,7 +11,7 @@ void App::Run()
 
 	
 	GLfloat vertices[] =
-	{ //     COORDINATES     /        COLORS      /   TexCoord  //
+	{ /*    COORDINATES */     /*        COLORS      *//*   TexCoord  */
 		-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
 		-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
 		 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
@@ -19,7 +19,6 @@ void App::Run()
 		 0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	2.5f, 5.0f
 	};
 
-	// Indices for vertices order
 	GLuint indices[] =
 	{
 		0, 1, 2,
@@ -52,16 +51,16 @@ void App::Run()
 
 	Shader shaderProgram( "shaders/vs.glsl", "shaders/fs.glsl" );
 
-	//VertexArray vao;
+
 	std::unique_ptr< VertexArray > vao = std::make_unique< VertexArray >();
 
 	vao->Bind();
 
 	VertexBuffer vb( vertices, sizeof(vertices) );
 
-	//IndexBuffer ib( indices, sizeof(indices) );
 	std::unique_ptr< IndexBuffer > ib = std::make_unique< IndexBuffer >( indices, sizeof( indices ) );
-	// Links VBO to VAO
+	
+	/* Links VBO to VAO */
 
 	/* positions */
 	vao->LinkAttrib( vb, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0 );
@@ -89,7 +88,6 @@ void App::Run()
 	camera->setSpeed( 0.1f );
 	camera->setSensitivity( 100.0f );
 
-	// Main while loop
 	while (!glfwWindowShouldClose( window ) )
 	{
 		glClearColor( 0.07f, 0.13f, 0.17f, 1.0f );
